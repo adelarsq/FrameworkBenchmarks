@@ -22,9 +22,10 @@ do
   # Note: we tear down first so that we can
   # know the state of the environment regardless
   # of the outcome of prior runs.
+  cp lifecycle/rebuild-environment.sh /tmp/ 
   lifecycle/tear-down-environment.sh
   # Rebuild environment
-  lifecycle/rebuild-environment.sh
+  tmp/rebuild-environment.sh
   # Handle any preprocessing (e.g. send metadata)
   lifecycle/pre-run-tests.sh	
   # Run the benchmarks
