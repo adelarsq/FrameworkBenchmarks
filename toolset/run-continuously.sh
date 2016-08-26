@@ -23,9 +23,10 @@ do
   # know the state of the environment regardless
   # of the outcome of prior runs.
   cp lifecycle/rebuild-environment.sh /tmp/ 
+  cp $REPOPARENT/$REPONAME/benchmark.conf /tmp/
   lifecycle/tear-down-environment.sh
   # Rebuild environment
-  tmp/rebuild-environment.sh
+  /tmp/rebuild-environment.sh
   # Handle any preprocessing (e.g. send metadata)
   lifecycle/pre-run-tests.sh	
   # Run the benchmarks
