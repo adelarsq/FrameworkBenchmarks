@@ -22,17 +22,24 @@ do
   # Note: we tear down first so that we can
   # know the state of the environment regardless
   # of the outcome of prior runs.
-  cp lifecycle/rebuild-environment.sh /tmp/ 
+  echo Copying lifecycle files
+  cp lifecycle/*.sh /tmp/ 
   cp $REPOPARENT/$REPONAME/benchmark.conf /tmp/
-  lifecycle/tear-down-environment.sh
+  echo Tearing down previous environment
+  /tmp/tear-down-environment.sh
   # Rebuild environment
+  echo Rebuilding environment
   /tmp/rebuild-environment.sh
   # Handle any preprocessing (e.g. send metadata)
-  lifecycle/pre-run-tests.sh	
+  echo Running pre-test tasks
+  tmp/pre-run-tests.sh	
   # Run the benchmarks
+  echo Change to benchmark root
   cd /private/FrameworkBenchmarks
+  echo Run tests
   toolset/run-tests.py --mode verify --test gemini 
   # Handle any postprocessing
-  lifecycle/post-run-tests.sh
+  echo Running post-test tasks
+  /tmp/post-run-tests.sh
   sleep 5
 done
