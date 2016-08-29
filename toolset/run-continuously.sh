@@ -27,11 +27,11 @@ do
   echo Tearing down previous environment
   /tmp/tear-down-environment.sh
   # Rebuild environment
-  echo Returning bencharmk configuration file
-  cp /tmp/benchmark.cfg $REPOPARENT$REPONAME/
-  ls $REPOPARENT$REPONAME
   echo Rebuilding environment
   /tmp/rebuild-environment.sh
+  echo Returning benchmark configuration file
+  cp /tmp/benchmark.cfg $REPOPARENT$REPONAME/
+  ls $REPOPARENT$REPONAME
   # Handle any preprocessing (e.g. send metadata)
   echo Running pre-test tasks
   tmp/pre-run-tests.sh	
