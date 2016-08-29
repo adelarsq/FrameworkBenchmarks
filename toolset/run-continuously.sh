@@ -13,9 +13,6 @@
 #
 # @author A. Shawn Bandy
 #
-${REPOPARENT:?Need path to parent of TFB repo}
-${REPONAME:?Need name of repo folder}
-${REPOURI:?Need to the URI used to clone the repo}
 while true
 do
   # Tear down the environment
@@ -23,8 +20,8 @@ do
   # know the state of the environment regardless
   # of the outcome of prior runs.
   echo Copying lifecycle files
-  cp lifecycle/*.sh /tmp/ 
-  cp $REPOPARENT/$REPONAME/benchmark.conf /tmp/
+  cp $REPOPARENT$REPONAME/lifecycle/*.sh /tmp/ 
+  cp $REPOPARENT$REPONAME/benchmark.conf /tmp/
   echo Tearing down previous environment
   /tmp/tear-down-environment.sh
   # Rebuild environment
