@@ -21,10 +21,11 @@ do
   # of the outcome of prior runs.
   echo Copying lifecycle files
   cp $REPOPARENT$REPONAME/lifecycle/*.sh /tmp/ 
-  cp $REPOPARENT$REPONAME/benchmark.conf /tmp/
+  cp $REPOPARENT$REPONAME/benchmark.cfg /tmp/
   echo Tearing down previous environment
   /tmp/tear-down-environment.sh
   # Rebuild environment
+  cp /tmp/benchmark.cfg $REPOPARENT$REPONAME/
   echo Rebuilding environment
   /tmp/rebuild-environment.sh
   # Handle any preprocessing (e.g. send metadata)
