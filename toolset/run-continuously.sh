@@ -20,7 +20,7 @@ do
   # know the state of the environment regardless
   # of the outcome of prior runs.
   echo Copying lifecycle files
-  cp $REPOPARENT$REPONAME/lifecycle/*.sh /tmp/ 
+  cp $REPOPARENT$REPONAME/toolset/lifecycle/*.sh /tmp/ 
   cp $REPOPARENT$REPONAME/benchmark.cfg /tmp/
   echo Tearing down previous environment
   /tmp/tear-down-environment.sh
