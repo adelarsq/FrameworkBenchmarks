@@ -22,10 +22,14 @@ do
   echo Copying lifecycle files
   cp $REPOPARENT$REPONAME/toolset/lifecycle/*.sh /tmp/ 
   cp $REPOPARENT$REPONAME/benchmark.cfg /tmp/
+  echo ls of /tmp
+  ls /tmp
   echo Tearing down previous environment
   /tmp/tear-down-environment.sh
   # Rebuild environment
+  echo Returning bencharmk configuration file
   cp /tmp/benchmark.cfg $REPOPARENT$REPONAME/
+  ls $REPOPARENT$REPONAME
   echo Rebuilding environment
   /tmp/rebuild-environment.sh
   # Handle any preprocessing (e.g. send metadata)
